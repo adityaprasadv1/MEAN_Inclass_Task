@@ -1,10 +1,24 @@
 /* Get home page. */
 const foodlist = function(req, res) {
-    res.render('foodlist', { title: 'Food list' });
+    let foodArray = [{
+        name: "Dosa",
+        type: "Breakfast"
+    },
+    {
+        name: "Poutine",
+        type: "Lunch"
+    },
+    {
+        name: "Biryani",
+        type: "Dinner"
+    }];
+    
+    res.render('foodlist', { foods: foodArray });
 };
 
 const myfavouriteFood = function(req, res) {
-    res.render('myfavourite-food', { title: 'My favourite food' });
+    const myFavFood = "Poutine";
+    res.render('myfavourite-food', { food: myFavFood });
 };
 
 module.exports = {
