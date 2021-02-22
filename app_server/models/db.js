@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 const readLine = require ('readline');
 
-const dbURI = 'mongodb+srv://aditya:<NiceTry!TryHarder>@cluster0.cpw0g.mongodb.net/assignmentdb?retryWrites=true&w=majority';
-mongoose.connect(dbURI, {useNewUrlParser: true});
+const dbURI = 'mongodb+srv://aditya:aditya@cluster0.cpw0g.mongodb.net/assignmentdb?retryWrites=true&w=majority';
+mongoose.connect(dbURI, {
+  useNewUrlParser: true,
+  dbName: 'myfoodDB'
+});
 
 mongoose.connection.on('connected', () => {
     console.log(`Mongoose connected to ${dbURI}`);
@@ -50,4 +53,5 @@ if (process.platform === 'win32') {
       process.exit(0);
     });
   });
-    
+  
+  require("./food");
