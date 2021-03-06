@@ -5,4 +5,4 @@ block content
   ul 
     each food in foods
       li
-        h3= food.type + " - " + food.name
+        a(href=`/foods/${food._id}`) #{food.name}

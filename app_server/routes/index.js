@@ -4,8 +4,7 @@ const ctrlMain = require('../controllers/main');
 const ctrlFood = require('../controllers/food');
 
 /* GET home page. */
-router.get('/', ctrlMain.index);
-router.get('/favourite', ctrlFood.myfavouriteFood);
-router.get('/list', ctrlFood.foodlist);
+router.get('/', ctrlFood.homelist);
+router.get('/foods/:foodid', ctrlFood.foodInfo);
 
 module.exports = router;
