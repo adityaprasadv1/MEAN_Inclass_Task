@@ -7,6 +7,37 @@ const apiOptions = {
     // apiOptions.server = 'https://.herokuapp.com';
 // }
 
+const _renderCreatePage = (req, res) => {
+    res.render('create-new-food', {
+        title: "Create New Food"
+    });
+};
+
+const addNewFood = (req, res) => {
+    _renderCreatePage(req, res);
+};
+
+const doAddNewFood = (req, res) => {
+    const path = '/api/foods';
+    const postdata = {
+        name: req.body.name,
+        type: req.body.type
+    };
+    const requestOptions = {
+        url: apiOptions.server + path,
+        method: 'POST',
+        json: postdata
+    };
+    request(
+        requestOptions,
+        (err, response, body) => {
+            if(response.statusCode === 201) {
+                res.redirect('/');
+            }
+        }
+    );
+};
+
 const _renderHomepage = (req, res, responseBody) => {
     res.render('foodlist', {
         foods:responseBody
@@ -51,5 +82,7 @@ const foodInfo = (req, res) => {
 
 module.exports = {
     homelist,
-    foodInfo
+    foodInfo,
+    doAddNewFood,
+    addNewFood
 };
