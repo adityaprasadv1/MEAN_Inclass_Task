@@ -1,9 +1,10 @@
 extends layout
 
 block content
-  h1 Here is a list of my favourite food
-  ul 
-    each food in foods
-      li
-        a(href=`/foods/${food._id}`) #{food.name}
-  a(href='/new') Create New Food
+  app-home-list
+  //- h1 Here is a list of my favourite food
+  //- ul 
+  //-   each food in foods
+  //-     li
+  //-       a(href=`/foods/${food._id}`) #{food.name}
+  //- a(href='/new') Create New Food

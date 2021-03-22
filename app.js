@@ -8,6 +8,7 @@ require('./app_server/models/db');
 const indexRouter = require('./app_server/routes/index');
 const apiRouter = require('./app_api/routes/foods');
 const usersRouter = require('./app_server/routes/users');
+const { dirname } = require('path');
 
 var app = express();
 
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'food-public', 'build')));
 
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
