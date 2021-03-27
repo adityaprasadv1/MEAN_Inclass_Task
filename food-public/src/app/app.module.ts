@@ -3,16 +3,36 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HomeListComponent } from './home-list/home-list.component';
+import { AboutComponent } from './about/about.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { HeaderComponent } from './header/header.component';
+import { FrameworkComponent } from './framework/framework.component';
+import { APP_BASE_HREF} from '@angular/common';
+import { RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
-    HomeListComponent
+    HomeListComponent,
+    AboutComponent,
+    HomepageComponent,
+    HeaderComponent,
+    FrameworkComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: HomepageComponent
+      },
+      {
+        path: 'about',
+        component: AboutComponent
+      }
+    ])
   ],
-  providers: [],
-  bootstrap: [HomeListComponent]
+  providers: [{provide: APP_BASE_HREF, useValue: '/'}],
+  bootstrap: [FrameworkComponent]
 })
 export class AppModule { }
