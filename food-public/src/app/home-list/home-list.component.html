@@ -1,4 +1,6 @@
 <p>home-list works!</p>
 <ul>
-    <li *ngFor="let food of foods;">{{food.name}}</li>
+    <li *ngFor="let food of foods;">
+        <a routerLink="/foods/{{food._id}}">{{food.name}}</a>
+    </li>
 </ul>

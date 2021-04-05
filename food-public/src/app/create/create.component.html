@@ -1,0 +1,7 @@
+<form (ngSubmit)="createNewFood(newFood)">
+    <label for="name">Name</label>
+    <input [(ngModel)]="newFood.name" id="name" name="name" required="required">
+    <label for="type">Type</label>
+    <input [(ngModel)]="newFood.type" id="type" name="type" required="required">
+    <button type="submit">Create</button>
+</form>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HomeListComponent } from './home-list/home-list.component';
@@ -9,6 +10,8 @@ import { HeaderComponent } from './header/header.component';
 import { FrameworkComponent } from './framework/framework.component';
 import { APP_BASE_HREF} from '@angular/common';
 import { RouterModule} from '@angular/router';
+import { CreateComponent } from './create/create.component';
+import { DetailsPageComponent } from './details-page/details-page.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { RouterModule} from '@angular/router';
     AboutComponent,
     HomepageComponent,
     HeaderComponent,
-    FrameworkComponent
+    FrameworkComponent,
+    CreateComponent,
+    DetailsPageComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -29,6 +35,14 @@ import { RouterModule} from '@angular/router';
       {
         path: 'about',
         component: AboutComponent
+      },
+      {
+        path: 'create',
+        component: CreateComponent
+      },
+      {
+        path: 'foods/:foodid',
+        component: DetailsPageComponent
       }
     ])
   ],

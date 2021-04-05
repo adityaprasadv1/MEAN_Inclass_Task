@@ -11,10 +11,24 @@ export class FoodServiceService {
   constructor(private http:HttpClient) { }
 
   getFoods() : Promise<void | Food[]>{
-return this.http.get(this.foodsUrl)
-.toPromise()
-.then(response => response as Food[])
-.catch(this.handleError);
+    return this.http.get(this.foodsUrl)
+    .toPromise()
+    .then(response => response as Food[])
+    .catch(this.handleError);
+  }
+
+  getSingleFood(foodId: string) : Promise<void | Food>{
+    return this.http.get(this.foodsUrl+'/'+foodId)
+    .toPromise()
+    .then(response => response as Food)
+    .catch(this.handleError);
+  }
+  
+  createFood(newFood: Food) : Promise<void | Food>{
+    return this.http.post(this.foodsUrl, newFood)
+    .toPromise()
+    .then(response => response as Food)
+    .catch(this.handleError);
   }
 
   private handleError(error: any){
